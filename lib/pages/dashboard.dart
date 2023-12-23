@@ -134,7 +134,7 @@ class _DashboardState extends State<Dashboard> {
               child: const Text(
                 'tvbgsxpxnnjx',
                 style: TextStyle(
-                  color: Color.fromARGB(255, 5, 5, 5),
+                  color: Color.fromARGB(255, 6, 6, 6),
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
                 ),
