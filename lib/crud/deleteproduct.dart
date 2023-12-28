@@ -20,14 +20,14 @@ class _DelProductState extends State<DelProduct> {
 
   Future _listProduct() async {
     var response = await http.get(Uri.parse(
-        "https://solongandgoodnight.000webhostapp.com/productdata.php"));
+        "https://dontdreamitsover.000webhostapp.com/productdata.php"));
     var data = jsonDecode(response.body);
 
     _streamController.add(data);
   }
 
   Future<void> _deleteItem(String id) async {
-    var url = "https://solongandgoodnight.000webhostapp.com/deleteproduct.php";
+    var url = "https://dontdreamitsover.000webhostapp.com/deleteproduct.php";
     var response = await http.post(Uri.parse(url), body: {
       "id": id,
     });

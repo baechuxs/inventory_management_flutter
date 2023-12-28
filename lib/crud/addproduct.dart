@@ -25,7 +25,7 @@ class _AddProductState extends State<AddProduct> {
         name.text != "" &&
         price.text != "" &&
         stock.text != "") {
-      var url = "https://solongandgoodnight.000webhostapp.com/addproduct.php";
+      var url = "https://dontdreamitsover.000webhostapp.com/addproduct.php";
       var response = await http.post(Uri.parse(url), body: {
         "id": id.text,
         "name": name.text,

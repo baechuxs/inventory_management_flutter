@@ -18,7 +18,7 @@ class _ListProductState extends State<ListProduct> {
 
   Future _listProduct() async {
     var response = await http.get(Uri.parse(
-        "https://solongandgoodnight.000webhostapp.com/productdata.php"));
+        "https://dontdreamitsover.000webhostapp.com/productdata.php"));
     var data = jsonDecode(response.body);
 
     _streamController.add(data);

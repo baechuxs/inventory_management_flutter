@@ -19,7 +19,7 @@ class _InfoProductState extends State<InfoProduct> {
 
   Future _infoProduct() async {
     var response = await http.get(Uri.parse(
-        "https://solongandgoodnight.000webhostapp.com/productcount.php"));
+        "https://dontdreamitsover.000webhostapp.com/productcount.php"));
     var data = jsonDecode(response.body);
 
     _streamController.add(data);
