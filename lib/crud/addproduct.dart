@@ -25,21 +25,61 @@ class _AddProductState extends State<AddProduct> {
         name.text != "" &&
         price.text != "" &&
         stock.text != "") {
-      var url = "https://dontdreamitsover.000webhostapp.com/addproduct.php";
-      var response = await http.post(Uri.parse(url), body: {
-        "id": id.text,
-        "name": name.text,
-        "price": price.text,
-        "stock": stock.text,
-      });
+      if (name.text.length <= 32) {
+        var url = "https://dontdreamitsover.000webhostapp.com/addproduct.php";
+        var response = await http.post(Uri.parse(url), body: {
+          "id": id.text,
+          "name": name.text,
+          "price": price.text,
+          "stock": stock.text,
+        });
 
-      var data = json.decode(response.body);
+        var data = json.decode(response.body);
 
-      if (data == "success") {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => InPage()));
+        if (data == "success") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => InPage()),
+          );
+        } else {
+          // Handle other cases if needed
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Error'),
+                content: Text('Failed to add product.'),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('OK'),
+                  ),
+                ],
+              );
+            },
+          );
+        }
       } else {
-        Text("error");
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Error'),
+              content: Text(
+                  'Product name exceeds the maximum character limit (32).'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
       }
     }
   }

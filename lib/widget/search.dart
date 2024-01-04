@@ -52,13 +52,10 @@ class _SearchPageState extends State<SearchPage> {
         foregroundColor: AccentColor().getColor(),
         title: TextField(
           controller: _searchController,
-          style: const TextStyle(
-              color:
-                  Colors.white), // Ubah warna teks yang diketik menjadi putih
+          style: const TextStyle(color: Colors.white),
           decoration: const InputDecoration(
             hintText: 'Search by Name or ID',
-            hintStyle: TextStyle(
-                color: Colors.white), // Ubah warna teks hint menjadi putih
+            hintStyle: TextStyle(color: Colors.white),
             border: InputBorder.none,
           ),
           onChanged: (value) {
